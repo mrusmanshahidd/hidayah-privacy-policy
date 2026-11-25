@@ -1,0 +1,88 @@
+:root {
+  color-scheme: light;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: #20332c;
+  background: #f7f8f5;
+  -webkit-text-size-adjust: 100%;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; }
+a { color: #155d49; text-underline-offset: 0.17em; }
+a:hover { color: #0d4434; }
+a:focus-visible { outline: 3px solid #c5a64c; outline-offset: 4px; border-radius: 2px; }
+
+.shell { width: min(100% - 2.5rem, 70rem); margin-inline: auto; }
+.skip-link { position: absolute; left: 1rem; top: -5rem; z-index: 10; padding: 0.55rem 0.8rem; background: #fff; }
+.skip-link:focus { top: 0.6rem; }
+
+.site-header { background: #fff; border-bottom: 1px solid #e2e9e3; }
+.header-inner, .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.header-inner { min-height: 4.75rem; }
+.brand { display: inline-flex; align-items: center; gap: 0.7rem; color: #173c32; font-size: 1.12rem; font-weight: 750; letter-spacing: 0.01em; }
+.brand-mark { display: grid; place-items: center; width: 2.1rem; height: 2.1rem; border-radius: 0.6rem; background: #173c32; color: #e8d393; font-family: Georgia, serif; font-size: 1.25rem; }
+.header-label { color: #566e63; font-size: 0.94rem; }
+
+.intro { margin-top: 2.5rem; padding: clamp(2rem, 5vw, 4.25rem); border-radius: 1.3rem; background: #173c32; color: #fff; }
+.eyebrow { margin: 0 0 1.15rem; color: #e8d393; font-size: 0.87rem; font-weight: 650; letter-spacing: 0.035em; overflow-wrap: anywhere; }
+h1 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.5rem, 6vw, 4.2rem); line-height: 1.12; font-weight: 600; letter-spacing: -0.035em; }
+.intro-copy { max-width: 42rem; margin: 1.15rem 0 0; color: #e6eee9; font-size: 1.12rem; line-height: 1.55; }
+.effective-date { margin: 1.9rem 0 0; padding-top: 1.15rem; border-top: 1px solid #527568; color: #dce7df; font-size: 0.92rem; }
+
+.content-layout { display: grid; grid-template-columns: 13.5rem minmax(0, 1fr); gap: clamp(2rem, 5vw, 5rem); padding: 3.2rem 0 5rem; align-items: start; }
+.contents { position: sticky; top: 1.8rem; }
+.contents-title { margin: 0 0 0.8rem; color: #66786d; font-size: 0.84rem; font-weight: 750; letter-spacing: 0.075em; text-transform: uppercase; }
+.contents ol { margin: 0; padding: 0; list-style: none; }
+.contents li + li { margin-top: 0.3rem; }
+.contents a { display: block; padding: 0.35rem 0.55rem; border-radius: 0.4rem; color: #385c4b; text-decoration: none; font-size: 0.93rem; }
+.contents a:hover, .contents a:focus-visible { background: #e9eee8; }
+
+.policy { min-width: 0; max-width: 46rem; }
+.policy section { scroll-margin-top: 2rem; }
+.policy section + section { margin-top: 2.7rem; padding-top: 2.6rem; border-top: 1px solid #dfe7df; }
+h2 { margin: 0 0 0.85rem; color: #173c32; font-family: Georgia, "Times New Roman", serif; font-size: clamp(1.5rem, 3vw, 1.9rem); line-height: 1.22; font-weight: 600; }
+.policy p { margin: 0 0 1rem; }
+.policy p:last-child { margin-bottom: 0; }
+.policy ul { margin: 0 0 1rem; padding-left: 1.4rem; }
+.policy li + li { margin-top: 0.55rem; }
+.domain { overflow-wrap: anywhere; }
+.contact-placeholder { display: inline-block; padding: 0.55rem 0.8rem; border: 1px dashed #b9994b; border-radius: 0.45rem; background: #fff9e9; color: #59451a; font-weight: 650; }
+
+.site-footer { border-top: 1px solid #dfe7df; color: #53685d; background: #fff; }
+.footer-inner { min-height: 5rem; font-size: 0.88rem; }
+
+@media (max-width: 45rem) {
+  .shell { width: min(100% - 2rem, 38rem); }
+  .header-inner { min-height: 4.25rem; }
+  .intro { margin-top: 1.25rem; border-radius: 0.9rem; }
+  .content-layout { display: block; padding: 2rem 0 3.5rem; }
+  .contents { position: static; padding: 1rem 1.15rem; margin-bottom: 2.5rem; border: 1px solid #e1e8e1; border-radius: 0.75rem; background: #fff; }
+  .contents ol { columns: 2; column-gap: 1rem; }
+  .contents li { break-inside: avoid; }
+  .footer-inner { align-items: flex-start; flex-direction: column; justify-content: center; gap: 0; padding-block: 1rem; }
+}
+
+@media (max-width: 25rem) {
+  .header-label { display: none; }
+  .contents ol { columns: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+@media print {
+  :root { color: #000; background: #fff; }
+  .site-header, .contents, .site-footer, .skip-link { display: none; }
+  .shell { width: 100%; }
+  .intro { margin: 0 0 1.5rem; padding: 0; color: #000; background: none; }
+  .eyebrow, .intro-copy, .effective-date { color: #000; }
+  .effective-date { border: 0; margin-top: 0.5rem; padding: 0; }
+  .content-layout { display: block; padding: 0; }
+  .policy { max-width: none; }
+  .policy section + section { margin-top: 1.5rem; padding-top: 1.5rem; }
+  a { color: #000; }
+}
